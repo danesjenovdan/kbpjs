@@ -5,9 +5,9 @@
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
       </div>
       <div class="icons">
-        <b-button class="icon"><img src="../assets/icons/facebook.png"></b-button>
-        <b-button class="icon"><img src="../assets/icons/twitter.png"></b-button>
-        <b-button class="icon"><img src="../assets/icons/mail.png"></b-button>
+        <b-button class="icon"><img src="../assets/icons/facebook.svg"></b-button>
+        <b-button class="icon"><img src="../assets/icons/twitter.svg"></b-button>
+        <b-button class="icon"><img src="../assets/icons/mail.svg"></b-button>
       </div>
       <div class="authors">
         <span>
@@ -24,13 +24,11 @@
       <div class="donate">
         <span style="display: table-cell; vertical-align: middle">
           <span style="font-family: acumin-pro">Želiš podpreti naše delo?</span>
-          <b-button id="donate-btn"
-                    @mouseleave="heartBeat = false"
-                    @mouseover="heartBeat = true">
+          <b-button id="donate-btn">
             <span style="font-weight: bold; font-family: quador-display;">Doniraj</span>
             <b-icon icon="suit-heart-fill"
                     style="margin-left: 10px"
-                    :animation="heartBeat ? 'throb' : ''">
+                    class="heart">
             </b-icon>
           </b-button>
         </span>
@@ -87,6 +85,17 @@ export default {
   .icon > img {
     width: 6vw;
   }
+  .icon:hover > img {
+    animation: bounce 1s;
+  }
+  @keyframes bounce {
+    25% {
+      transform: scale(0.9);
+    }
+    75% {
+      transform: scale(1);
+    }
+  }
   .authors {
     width: 100%;
     height: 10%;
@@ -120,6 +129,17 @@ export default {
     color: black;
     margin-left: 1vw;
   }
+  #donate-btn:hover > .heart{
+    animation: heart-beat 1s;
+  }
+  @keyframes heart-beat {
+    25% {
+      transform: scale(1.5);
+    }
+    75% {
+      transform: scale(1);
+    }
+  }
   .poziv {
     align-self: center;
     font-size: 1.5vw;
@@ -139,7 +159,7 @@ export default {
   span > a {
     font-size: 2vh;
     text-decoration: underline;
-    color: black;
+    color: #252525;
   }
 
 </style>

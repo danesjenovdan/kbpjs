@@ -1,30 +1,32 @@
 <template>
   <div>
-    <div class="container" style="transition: 1s;">
-      <img class="quotation-mark" style="align-self: start" src="../assets/quotation_mark.png"/>
-        <div id="quote-box">
-          <transition name="slide-fade">
-            <div :key="quoteIndex">
-              <span id="quote-text">{{ currentQuote.text }}</span>
-            </div>
-          </transition>
-        </div>
-      <transition name="slide-fade">
-        <div id="quote-reference" style="text-align: left" :key="quoteIndex">
-          <span style="text-align: start">{{ currentQuote.person }},
-            <a v-if="currentQuote.reference"
-               :href="currentQuote.reference.link"
-               rel="noreferrer noopener"
-               target="_blank"
-               style="color: #ffac41">{{ currentQuote.reference.label }}</a>
-          </span>
-        </div>
-      </transition>
-      <button id="quote-btn" @click="getQuote()">
-        <b-icon icon="arrow-repeat" font-scale="1.5" style="color: #252525; margin-right: 5px"></b-icon>
-        <span style="vertical-align: top;">Naloži novo izjavo</span>
-      </button>
-    </div>
+      <div class="container">
+          <img class="quotation-mark" style="align-self: start" src="../assets/quotation_mark.png"/>
+          <div id="quote-box">
+            <span id="quote-text" class="text-wrapper">{{ currentQuote.text }}</span>
+          </div>
+        <transition name="slide-fade" mode="out-in">
+          <div :key="quoteIndex" id="quote-reference" style="text-align: left">
+            <span style="text-align: start">{{ currentQuote.person }},
+              <a v-if="currentQuote.reference"
+                 :href="currentQuote.reference.link"
+                 rel="noreferrer noopener"
+                 target="_blank"
+                 style="color: #343434; text-decoration: underline; font-style: italic"
+              >{{ currentQuote.reference.label }}</a>
+            </span>
+          </div>
+        </transition>
+        <button id="quote-btn"
+                @click="getQuote()">
+          <b-icon icon="arrow-repeat"
+                  font-scale="1.5"
+                  class="repeat-arrow"
+                  style="color: #252525; margin-right: 5px">
+          </b-icon>
+          <span style="vertical-align: top;">Naloži novo izjavo</span>
+        </button>
+      </div>
     <div class="container-side-panel">
       <p id="side-panel-text">
         Bedno, okej.<br>
@@ -40,7 +42,7 @@
         <router-link to="/argumenti"
                      style="color: #252525; line-height: 1">
           <p class="m-0">Ja, prosim!</p>
-          <img src="../assets/icons/arrow_icon.png">
+          <img src="../assets/icons/learn_more_arrow.svg">
         </router-link>
       </div>
     </div>
@@ -69,17 +71,34 @@ export default {
         rand = Math.floor(Math.random() * this.allQuotes.length);
       }
       this.currentQuote = this.allQuotes[rand];
-      this.quoteIndex = rand;
+      // this.quoteIndex = rand;
+      document.querySelector('.text-wrapper').innerHTML = this.currentQuote.text;
+      this.animateLetters(rand);
       this.resetInterval();
     },
     resetInterval() {
-      clearInterval(this.timeInterval);
-      this.timeInterval = setInterval(this.getQuote, 5000);
+      if (this.timeInterval) {
+        clearInterval(this.timeInterval);
+      }
+      this.timeInterval = setInterval(this.getQuote, this.currentQuote.text.split(' ').length * 1.5 * 1000);
+    },
+    animateLetters(index) {
+      const textWrapper = document.querySelector('.text-wrapper');
+      textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+      this.$anime.timeline()
+        .add({
+          targets: '.text-wrapper .letter',
+          opacity: [0, 1],
+          easing: 'easeInOutQuad',
+          duration: 1000,
+          delay: (el, i) => 10 * (i + 1),
+        });
+      this.quoteIndex = index;
     },
   },
 
   mounted() {
-    this.timeInterval = setInterval(this.getQuote, 5000);
+    this.timeInterval = setInterval(this.getQuote, this.currentQuote.text.split(' ').length * 1.5 * 1000);
   },
 };
 </script>
@@ -99,7 +118,6 @@ export default {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    /*border: 1px solid blue;*/
   }
   .container-side-panel {
     position: absolute;
@@ -108,8 +126,9 @@ export default {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     width: 26%;
-    height: 95%;
-    right: 5%;
+    height: 90vh;
+    right: 5vh;
+    top: 5vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -120,8 +139,9 @@ export default {
   #quote-box{
     border-top: 3px solid black;
     border-bottom: 3px solid black;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    align-content: center;
   }
 
   #quote-text{
@@ -135,7 +155,7 @@ export default {
     margin-top: 10px;
     font-size: 1.2vw;
     font-family: acumin-pro;
-    color: #252525;
+    color: #343434;
     overflow: hidden;
   }
 
@@ -152,10 +172,16 @@ export default {
     margin-bottom: auto;
     color: #252525;
   }
-
+  .repeat-arrow {
+    transition: 1s ease;
+  }
+  #quote-btn:hover > .repeat-arrow{
+    transform: rotate(180deg);
+  }
   .quotation-mark{
     height: 15%;
     margin-top: auto;
+    transition: all 3s ease;
   }
 
   #side-panel-text {
@@ -191,14 +217,14 @@ export default {
     transition: all 2s ease;
   }
   .slide-fade-leave-active {
-    transition: all 2s ease;
+    transition: all .5s ease;
   }
   .slide-fade-leave-to {
     transform: translateX(500px);
     opacity: 0;
   }
   .slide-fade-enter {
-    transform: translateX(-2000px);
+    transform: translateX(-100px);
     opacity: 0;
   }
 </style>

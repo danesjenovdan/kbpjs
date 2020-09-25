@@ -8,13 +8,13 @@
          v-for="arg in content" :key="arg.id"
          style="border-top: 5px solid black; padding: 0; font-family: quador-display; color: #252525">
       <b-row>
-        <b-col cols="4" style="margin-left: -3.5vw">
-          <img class="number float-right" :src="require('../assets/numbers/'+arg.id+'.png')">
+        <b-col cols="4" style="margin-left: -5vw; margin-right: 3vw">
+          <img class="float-right" :src="require('../assets/numbers/'+arg.id+'.svg')">
         </b-col>
-        <b-col class="pr-5" style="padding-top: 3vh">
-          <h1 style="font-size: 3vw;">{{ arg.title }}</h1>
+        <b-col class="pr-5" style="padding-top: 3vh; padding-bottom: 3vh">
+          <h1 class="accordion-title" style="-ms-hyphens: auto">{{ arg.title }}</h1>
           <p v-html="arg.lead_paragraph"
-             style="text-align: justify; font-family: acumin-pro">
+             style="font-family: acumin-pro; font-weight: 300;">
           </p>
           <div v-if="!arg.expanded"
                class="learn-more"
@@ -23,7 +23,7 @@
           <b-collapse :id="'collapse-' + arg.id"
                       v-model="arg.expanded"
                       @shown="goToElement(arg.id)"
-                      style="text-align: justify">
+                      style="font-size: 1.1rem">
             <p v-for="par in arg.more_paragraphs"
                :key="'par-' + arg.more_paragraphs.indexOf(par)"
                v-html="par">
@@ -82,12 +82,6 @@ export default {
     padding: 1vw 1vw 1vw 1vw;
     font-size: 1.7vw;
     font-family: quador-display;
-    text-align: justify;
-    /*font-weight: 500*/
-  }
-  .number {
-    /*margin-left: -10em;*/
-    /*max-width: 350px;*/
   }
   .learn-more {
     text-decoration: underline;
@@ -99,8 +93,9 @@ export default {
     font-family: quador-display;
   }
   .learn-more:before{
-    content: url("../assets/icons/learn_more_arrow.png");
-    vertical-align: middle;
+    content: url("../assets/icons/learn_more_arrow.svg");
+    vertical-align: top;
+    margin-right: 5px;
     display: inline-block;
   }
   .learn-more:hover:before {
@@ -114,13 +109,33 @@ export default {
   }
   .bullet-point {
     display: list-item;
-    list-style-image: url("../assets/icons/arrow_icon.png");
+    list-style-image: url("../assets/icons/learn_more_arrow.svg");
     list-style-position: inside;
   }
+  .accordion-title {
+    font-size: 4vw;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto !important;
+    hyphens: auto;
+  }
   div >>> a {
-    color: #ffac41;
+    color: #252525;
+    border-bottom: 2px solid #252525;
+    line-height: 0.9;
+    display: inline-block;
+  }
+  div >>> a:hover {
+    text-decoration: none;
+    border-bottom: 2px solid #ffac41;
   }
   p >>> a {
-    color: #ffac41;
+    color: #252525;
+    border-bottom: 2px solid #252525;
+    line-height: 0.9;
+    display: inline-block;
+  }
+  p >>> a:hover {
+    text-decoration: none;
+    border-bottom: 2px solid #ffac41;
   }
 </style>
