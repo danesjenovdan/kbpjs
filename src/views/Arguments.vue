@@ -66,7 +66,6 @@ export default {
     top: 0;
     height: 100vh;
     z-index: 3000;
-    /*padding: 4rem 20px 0 20px;*/
     width: 30%;
     border-left: 5px solid black;
   }
@@ -121,7 +120,6 @@ export default {
     align-self: baseline;
     text-align: center;
     display: table;
-    /*margin-top: auto;*/
   }
   #donate-btn {
     background-color: transparent;
@@ -145,10 +143,8 @@ export default {
     font-size: 1.5vw;
     margin: auto 2rem 0 2rem;
     text-align: justify;
-    /*font-size: 2vw;*/
     font-family: quador-display;
     font-weight: 500;
-    /*line-height: 50px;*/
     color: #252525;
   }
   .accordion-container {

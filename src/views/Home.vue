@@ -40,9 +40,10 @@
       </p>
       <div id="side-panel-link">
         <router-link to="/argumenti"
+                     @click.native="stopTimeout()"
                      style="color: #252525; line-height: 1">
           <p class="m-0">Ja, prosim!</p>
-          <img src="../assets/icons/learn_more_arrow.svg">
+          <img style="width: 8vh" src="../assets/icons/learn_more_arrow.svg">
         </router-link>
       </div>
     </div>
@@ -60,7 +61,7 @@ export default {
       allQuotes: quotes,
       currentQuote: quotes[0],
       quoteIndex: 0,
-      timeInterval: 0,
+      myTimeout: -1,
     };
   },
 
@@ -71,16 +72,16 @@ export default {
         rand = Math.floor(Math.random() * this.allQuotes.length);
       }
       this.currentQuote = this.allQuotes[rand];
-      // this.quoteIndex = rand;
       document.querySelector('.text-wrapper').innerHTML = this.currentQuote.text;
       this.animateLetters(rand);
       this.resetInterval();
     },
     resetInterval() {
-      if (this.timeInterval) {
-        clearInterval(this.timeInterval);
+      if (this.myTimeout !== -1) {
+        clearTimeout(this.myTimeout);
+        this.myTimeout = -1;
       }
-      this.timeInterval = setInterval(this.getQuote, this.currentQuote.text.split(' ').length * 1.5 * 1000);
+      this.myTimeout = setTimeout(this.getQuote, this.currentQuote.text.split(' ').length * 1.5 * 1000);
     },
     animateLetters(index) {
       const textWrapper = document.querySelector('.text-wrapper');
@@ -95,10 +96,14 @@ export default {
         });
       this.quoteIndex = index;
     },
+    stopTimeout() {
+      clearTimeout(this.myTimeout);
+      this.myTimeout = -1;
+    },
   },
 
   mounted() {
-    this.timeInterval = setInterval(this.getQuote, this.currentQuote.text.split(' ').length * 1.5 * 1000);
+    this.myTimeout = setTimeout(this.getQuote, this.currentQuote.text.split(' ').length * 1.5 * 1000);
   },
 };
 </script>

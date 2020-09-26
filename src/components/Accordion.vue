@@ -9,7 +9,7 @@
          style="border-top: 5px solid black; padding: 0; font-family: quador-display; color: #252525">
       <b-row>
         <b-col cols="4" style="margin-left: -5vw; margin-right: 3vw">
-          <img class="float-right" :src="require('../assets/numbers/'+arg.id+'.svg')">
+          <img :class="arg.expanded ? 'float-right' : 'float-right h-100'" :src="require('../assets/numbers/'+arg.id+'.svg')">
         </b-col>
         <b-col class="pr-5" style="padding-top: 3vh; padding-bottom: 3vh">
           <h1 class="accordion-title" style="-ms-hyphens: auto">{{ arg.title }}</h1>
@@ -94,6 +94,7 @@ export default {
   }
   .learn-more:before{
     content: url("../assets/icons/learn_more_arrow.svg");
+    width: 5.5vh;
     vertical-align: top;
     margin-right: 5px;
     display: inline-block;
@@ -109,8 +110,15 @@ export default {
   }
   .bullet-point {
     display: list-item;
-    list-style-image: url("../assets/icons/learn_more_arrow.svg");
+    list-style-type: none;
     list-style-position: inside;
+  }
+  .bullet-point:before {
+    content: url("../assets/icons/learn_more_arrow.svg");
+    width: 5.5vh;
+    vertical-align: top;
+    margin-right: 5px;
+    display: inline-block;
   }
   .accordion-title {
     font-size: 4vw;
@@ -120,22 +128,16 @@ export default {
   }
   div >>> a {
     color: #252525;
-    border-bottom: 2px solid #252525;
-    line-height: 0.9;
-    display: inline-block;
+    text-decoration: underline;
   }
   div >>> a:hover {
-    text-decoration: none;
-    border-bottom: 2px solid #ffac41;
+    text-decoration-color: #ffac41;
   }
   p >>> a {
     color: #252525;
-    border-bottom: 2px solid #252525;
-    line-height: 0.9;
-    display: inline-block;
+    text-decoration: underline;
   }
   p >>> a:hover {
-    text-decoration: none;
-    border-bottom: 2px solid #ffac41;
+    text-decoration-color: #ffac41;
   }
 </style>
