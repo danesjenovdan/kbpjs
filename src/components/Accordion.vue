@@ -6,15 +6,14 @@
     <div :ref="'accordion-' + arg.id"
          :id="'accordion-' + arg.id"
          v-for="arg in content" :key="arg.id"
-         style="border-top: 5px solid black; padding: 0; font-family: quador-display; color: #252525">
-      <b-row>
-        <b-col cols="4" style="margin-left: -5vw; margin-right: 3vw">
+         style="border-top: 5px solid black; padding: 0; font-family: quador-display; color: #252525; width: 100%">
+      <b-row class="pr-0 mr-0 ml-0">
+        <b-col cols="4" class="number-column">
           <img :class="arg.expanded ? 'float-right' : 'float-right h-100'" :src="require('../assets/numbers/'+arg.id+'.svg')">
         </b-col>
-        <b-col class="pr-5" style="padding-top: 3vh; padding-bottom: 3vh">
-          <h1 class="accordion-title" style="-ms-hyphens: auto">{{ arg.title }}</h1>
-          <p v-html="arg.lead_paragraph"
-             style="font-family: acumin-pro; font-weight: 300;">
+        <b-col class="text-column">
+          <h1 class="accordion-title">{{ arg.title }}</h1>
+          <p v-html="arg.lead_paragraph" class="lead-paragraph">
           </p>
           <div v-if="!arg.expanded"
                class="learn-more"
@@ -88,19 +87,23 @@ export default {
     display: list-item;
     list-style-type: none;
     list-style-position: inside;
-    font-size: 4vh;
+    font-size: 2vw;
     cursor: pointer;
     font-family: quador-display;
   }
   .learn-more:before{
     content: url("../assets/icons/learn_more_arrow.svg");
-    width: 5.5vh;
-    vertical-align: top;
+    width: 4.5vw;
+    vertical-align: middle;
     margin-right: 5px;
     display: inline-block;
   }
   .learn-more:hover:before {
     animation: shake 0.5s;
+  }
+  .lead-paragraph {
+    font-family: acumin-pro;
+    font-weight: 300;
   }
   @keyframes shake {
     0% { transform: rotate(0deg); }
@@ -115,8 +118,8 @@ export default {
   }
   .bullet-point:before {
     content: url("../assets/icons/learn_more_arrow.svg");
-    width: 5.5vh;
-    vertical-align: top;
+    width: 3.5vw;
+    vertical-align: middle;
     margin-right: 5px;
     display: inline-block;
   }
@@ -139,5 +142,71 @@ export default {
   }
   p >>> a:hover {
     text-decoration-color: #ffac41;
+  }
+  .text-column {
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    padding-right: 3rem !important;
+  }
+  .number-column {
+    margin-left: -5vw;
+    margin-right: 3vw;
+  }
+
+  @media (max-width: 991px) {                                /*  991px */
+    #top-paragraph {
+      font-size: 2.5vw;
+    }
+    .learn-more {
+      font-size: 3vw;
+    }
+    .learn-more:before{
+      vertical-align: top;
+    }
+    .bullet-point:before {
+      vertical-align: top;
+    }
+  }
+  @media (max-width: 767px) {                                /*  767px */
+    #top-paragraph {
+      font-size: 3vw;
+    }
+    .learn-more {
+      font-size: 3.5vw;
+    }
+    .learn-more:before{
+      width: 5.5vw;
+    }
+    .accordion-title {
+      font-size: 6vw;
+    }
+    .lead-paragraph {
+      font-weight: 300;
+      font-size: 2.3vw;
+    }
+    .bullet-point:before {
+      width: 4vw;
+    }
+  }
+  @media (max-width: 575px) {                                /*  575px */
+    #top-paragraph {
+      font-size: 4vw;
+    }
+    .learn-more {
+      font-size: 6vw;
+    }
+    .learn-more:before{
+      width: 11vw;
+    }
+    .accordion-title {
+      font-size: 6.5vw;
+    }
+    .lead-paragraph {
+      font-weight: 300;
+      font-size: 0.9rem;
+    }
+    .bullet-point:before {
+      width: 8vw;
+    }
   }
 </style>
