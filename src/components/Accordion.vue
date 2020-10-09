@@ -8,11 +8,43 @@
          v-for="arg in content" :key="arg.id"
          style="border-top: 5px solid black; padding: 0; font-family: quador-display; color: #252525; width: 100%">
       <b-row class="pr-0 mr-0 ml-0">
-        <b-col cols="4" class="number-column">
+        <b-col cols="4" class="number-column not-visible-xs">
           <img :class="arg.expanded ? 'float-right' : 'float-right h-100'" :src="require('../assets/numbers/'+arg.id+'.svg')">
         </b-col>
-        <b-col class="text-column">
+        <b-col cols="3" class="number-column visible-xs">
+          <img class="number-xs" :src="require('../assets/numbers/'+arg.id+'.svg')">
+        </b-col>
+        <b-col class="visible-xs">
+          <h1 :class="arg.id !== 5 ? 'accordion-title' : 'accordion-title number-five-xs'">{{ arg.title }}</h1>
+        </b-col>
+        <b-col class="text-column not-visible-xs">
           <h1 class="accordion-title">{{ arg.title }}</h1>
+          <p v-html="arg.lead_paragraph" class="lead-paragraph">
+          </p>
+          <div v-if="!arg.expanded"
+               class="learn-more"
+               @click="openLearnMore(arg.id, $event)"
+          >Izvedi več</div>
+          <b-collapse :id="'collapse-' + arg.id"
+                      v-model="arg.expanded"
+                      @shown="goToElement(arg.id)"
+                      style="font-size: 1.1rem">
+            <p v-for="par in arg.more_paragraphs"
+               :key="'par-' + arg.more_paragraphs.indexOf(par)"
+               v-html="par">
+            </p>
+            <h3>Kako ukrepati?</h3>
+            <p v-html="arg.solution.paragraph"></p>
+            <p v-for="bp in arg.solution.bullet_points"
+               :key="'bp-' + arg.solution.bullet_points.indexOf(bp)"
+               class="bullet-point"
+               v-html="bp">
+            </p>
+          </b-collapse>
+        </b-col>
+      </b-row>
+      <b-row class="visible-xs">
+        <b-col class="text-column pt-0 pb-0">
           <p v-html="arg.lead_paragraph" class="lead-paragraph">
           </p>
           <div v-if="!arg.expanded"
@@ -152,9 +184,37 @@ export default {
     margin-left: -5vw;
     margin-right: 3vw;
   }
+  .visible-xs {
+    display: none;
+  }
+  .not-visible-xs {}
+  .number-xs {}
+  .number-five-xs {}
 
   @media (max-width: 991px) {                                /*  991px */
+    .visible-xs {
+      display: initial;
+    }
+    .not-visible-xs {
+      display: none;
+    }
+    .number-column {
+      margin-left: -4vw;
+      margin-right: 0;
+    }
+    .number-xs {
+      height: 100%;
+      float: right;
+    }
+    .accordion-title {
+      font-size: 6vw;
+      margin-bottom: 0 !important;
+    }
     #top-paragraph {
+      font-size: 2.5vw;
+    }
+    .lead-paragraph {
+      font-weight: 300;
       font-size: 2.5vw;
     }
     .learn-more {
@@ -189,6 +249,16 @@ export default {
     }
   }
   @media (max-width: 575px) {                                /*  575px */
+    .number-column {
+      margin-left: -7vw;
+    }
+    .number-xs {
+      height: 100%;
+      float: right;
+    }
+    .number-five-xs {
+      font-size: 5vw !important;
+    }
     #top-paragraph {
       font-size: 4vw;
     }

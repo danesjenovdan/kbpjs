@@ -299,12 +299,11 @@ export default {
       line-height: 1.5;
     }
     .side-panel-link {
-      float: right;
-      margin-top: 0;
-      font-size: 3vw;
+      margin-top: 10px;
+      font-size: 4vw;
     }
     .arrow {
-      width: 6vw;
+      width: 7vw;
     }
   }
   @media (max-width: 767px) {                                /*  767px */
@@ -322,10 +321,10 @@ export default {
       margin: 0;
     }
     .side-panel-link {
-      font-size: 3vw;
+      font-size: 4.5vw;
     }
     .arrow {
-      width: 6vw;
+      width: 7.5vw;
     }
   }
   @media (max-width: 575px) {                                /*  575px */
@@ -342,10 +341,10 @@ export default {
       font-size: 4vw;
     }
     .side-panel-link {
-      font-size: 3.7vw;
+      font-size: 7vw;
     }
     .arrow {
-      width: 8vw;
+      width: 10vw;
     }
   }
 </style>
