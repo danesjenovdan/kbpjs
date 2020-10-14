@@ -174,7 +174,8 @@ export default {
 
   #quote-text{
     font-size: 2vw;
-    font-family: sans-serif;
+    font-family: "quador-display", sans-serif !important;
+    font-weight: 400;
     color: #252525;
     overflow: hidden;
   }
