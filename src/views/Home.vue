@@ -3,7 +3,7 @@
     <div class="container">
       <img class="quotation-mark" style="align-self: start" src="../assets/quotation_mark.png"/>
       <div id="quote-box">
-        <span id="quote-text" class="text-wrapper">{{ currentQuote.text }}</span>
+        <span id="quote-text" class="text-wrapper tk-quador-display">{{ currentQuote.text }}</span>
       </div>
       <transition name="slide-fade" mode="out-in">
         <div :key="quoteIndex" id="quote-reference" style="text-align: left">
@@ -174,7 +174,7 @@ export default {
 
   #quote-text{
     font-size: 2vw;
-    font-family: quador-display;
+    font-family: "quador-display", sans-serif;
     color: #252525;
     overflow: hidden;
   }
@@ -182,7 +182,7 @@ export default {
   #quote-reference{
     margin-top: 10px;
     font-size: 1.5vw;
-    font-family: acumin-pro;
+    font-family: "acumin-pro", sans-serif;
     color: #343434;
     overflow: hidden;
   }
@@ -193,7 +193,7 @@ export default {
     text-align: center;
     align-content: center;
     text-decoration: underline;
-    font-family: quador-display;
+    font-family: "quador-display", sans-serif;
     padding: 12px;
     border-radius: 25px;
     margin-top: 20px;
@@ -214,7 +214,7 @@ export default {
 
   .side-panel-text {
     font-size: 2vw;
-    font-family: quador-display;
+    font-family: "quador-display", sans-serif;
     font-weight: 500;
     line-height: 50px;
     color: #252525;
@@ -225,7 +225,7 @@ export default {
     font-size: 3vw;
     text-decoration: underline;
     cursor: pointer;
-    font-family: quador-display;
+    font-family: "quador-display", sans-serif;
     font-weight: 500;
   }
   .side-panel-link:hover img {

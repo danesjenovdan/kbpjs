@@ -6,7 +6,7 @@
     <div :ref="'accordion-' + arg.id"
          :id="'accordion-' + arg.id"
          v-for="arg in content" :key="arg.id"
-         style="border-top: 5px solid black; padding: 0; font-family: quador-display; color: #252525; width: 100%">
+         style="border-top: 5px solid black; padding: 0; font-family: 'quador-display', sans-serif; color: #252525; width: 100%">
       <b-row class="pr-0 mr-0 ml-0">
         <b-col cols="4" class="number-column not-visible-xs">
           <img :class="arg.expanded ? 'float-right' : 'float-right h-100'" :src="require('../assets/numbers/'+arg.id+'.svg')">
@@ -112,7 +112,7 @@ export default {
   #top-paragraph {
     padding: 1vw 1vw 1vw 1vw;
     font-size: 1.7vw;
-    font-family: quador-display;
+    font-family: "quador-display", sans-serif;
   }
   .learn-more {
     text-decoration: underline;
@@ -121,7 +121,7 @@ export default {
     list-style-position: inside;
     font-size: 2vw;
     cursor: pointer;
-    font-family: quador-display;
+    font-family: "quador-display", sans-serif;
   }
   .learn-more:before{
     content: url("../assets/icons/learn_more_arrow.svg");
@@ -134,7 +134,7 @@ export default {
     animation: shake 0.5s;
   }
   .lead-paragraph {
-    font-family: acumin-pro;
+    font-family: "acumin-pro", sans-serif;
     font-weight: 300;
   }
   @keyframes shake {

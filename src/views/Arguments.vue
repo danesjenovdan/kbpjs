@@ -23,9 +23,9 @@
       </div>
       <div class="donate">
         <span style="display: table-cell; vertical-align: middle">
-          <span style="font-family: acumin-pro">Želiš podpreti naše delo?</span>
+          <span style="font-family: 'acumin-pro', sans-serif;">Želiš podpreti naše delo?</span>
           <b-button id="donate-btn">
-            <span style="font-weight: bold; font-family: quador-display;">Doniraj</span>
+            <span style="font-weight: bold; font-family: 'quador-display', sans-serif;">Doniraj</span>
             <b-icon icon="suit-heart-fill"
                     style="margin-left: 10px"
                     class="heart">
@@ -61,7 +61,7 @@
         <span>
           <span>Želiš podpreti naše delo?</span>
           <b-button id="donate-btn">
-            <span style="font-weight: bold; font-family: quador-display;">Doniraj</span>
+            <span style="font-weight: bold; font-family: 'quador-display', sans-serif;">Doniraj</span>
             <b-icon icon="suit-heart-fill"
                     style="margin-left: 10px"
                     class="heart">
@@ -143,11 +143,11 @@ export default {
   .authors > span {
     display: table-cell;
     vertical-align: middle;
-    font-family: quador-display;
+    font-family: "quador-display", sans-serif;
     font-weight: 500;
   }
   .authors p {
-    font-family: acumin-pro;
+    font-family: "acumin-pro", sans-serif;
     font-weight: 500;
   }
   .donate {
@@ -157,7 +157,7 @@ export default {
     align-self: baseline;
     text-align: center;
     display: table;
-    font-family: acumin-pro;
+    font-family: "acumin-pro", sans-serif;
     font-weight: 500;
   }
   #donate-btn {
@@ -182,7 +182,7 @@ export default {
     font-size: 1.5vw;
     margin: auto 2rem 0 2rem;
     text-align: justify;
-    font-family: quador-display;
+    font-family: "quador-display", sans-serif;
     font-weight: 500;
     color: #252525;
   }
