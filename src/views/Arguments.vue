@@ -45,9 +45,11 @@
           <p>Nedavna korona kriza je razgalila vrsto težav na stanovanjskem področju. Izpostavljamo največje korona kikse in predlagamo nekaj rešitev, ki bi jih veljalo upoštevati ob morebitnem zaostrovanju drugega vala epidemije.</p>
         </div>
         <div class="icons">
-          <b-button class="icon"><img src="../assets/icons/facebook.svg"></b-button>
-          <b-button class="icon"><img src="../assets/icons/twitter.svg"></b-button>
-          <b-button class="icon"><img src="../assets/icons/mail.svg"></b-button>
+          <b-button class="icon" @click="shareFacebook()"><img src="../assets/icons/facebook.svg"></b-button>
+          <b-button class="icon" @click="shareTwitter()"><img src="../assets/icons/twitter.svg"></b-button>
+          <a href="mailto:?subject=Ne dovolimo, da korona kriza poglobi stanovanjsko krizo!&body=Korona kriza je razgalila in zaostrila vrsto težav na stanovanjskem področju. Vlada je pri pripravi ukrepov očitno tudi tokrat pozabila na brezdomne, najemnike in kreditojemalce, ki bodo v drugem valu že drugič nasrkali. Na povezavi danesjenovdan.si/korona-kiks si lahko ogledaš največje korona kikse in predloge ukrepov, ki bi jih veljalo upoštevati, če nočemo, da trenutna epidemija še dodatno zaostri obstoječo stanovanjsko krizo.">
+            <b-button class="icon"><img src="../assets/icons/mail.svg"></b-button>
+          </a>
         </div>
         <div class="authors">
         <span>
@@ -64,13 +66,15 @@
         <div class="donate">
         <span>
           <span>Želiš podpreti naše delo?</span>
-          <b-button id="donate-btn" >
-            <span style="font-weight: bold; font-family: 'quador-display', sans-serif;">Doniraj</span>
-            <b-icon icon="suit-heart-fill"
-                    style="margin-left: 10px"
-                    class="heart">
-            </b-icon>
-          </b-button>
+          <a href="https://danesjenovdan.si/doniraj" rel="noopener noreferrer" target="_blank">
+            <b-button id="donate-btn" >
+              <span style="font-weight: bold; font-family: 'quador-display', sans-serif;">Doniraj</span>
+              <b-icon icon="suit-heart-fill"
+                      style="margin-left: 10px"
+                      class="heart">
+              </b-icon>
+            </b-button>
+          </a>
         </span>
         </div>
       </div>
