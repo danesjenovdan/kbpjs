@@ -27,7 +27,7 @@
 <!--        <span style="vertical-align: top;">Naloži novo izjavo</span>-->
 <!--      </button>-->
       <div class="container-side-panel-2">
-        <p class="side-panel-text">{{ sidePanelText }}</p>
+        <p v-for="par in sidePanelText" class="side-panel-text" :key="par">{{ par }}</p>
         <div class="side-panel-link">
           <router-link to="/kiksi"
                        @click.native="stopTimeout()"
@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="container-side-panel-1">
-      <p class="side-panel-text">{{ sidePanelText }}</p>
+      <p v-for="par in sidePanelText" class="side-panel-text" :key="par">{{ par }}</p>
       <div class="side-panel-link">
         <router-link to="/kiksi"
                      @click.native="stopTimeout()"
@@ -64,7 +64,11 @@ export default {
       currentQuote: quotes[0],
       quoteIndex: 0,
       myTimeout: -1,
-      sidePanelText: 'Korona kriza je razgalila in zaostrila vrsto težav na stanovanjskem področju. Kljub "resnim pripravam" bo "vse hudo" brezdomne, najemnike in kreditojemalce še enkrat doletelo v drugem valu. Oglej si največje korona kikse in predloge ukrepov, o katerih politika (še?) ne razmišlja.',
+      sidePanelText: [
+        'Korona kriza je razgalila in zaostrila vrsto težav na stanovanjskem področju.',
+        'Kljub "resnim pripravam" bo "vse hudo" brezdomne, najemnike in kreditojemalce še enkrat doletelo v drugem valu.',
+        'Oglej si največje korona kikse in predloge ukrepov, o katerih politika (še?) ne razmišlja.',
+      ],
     };
   },
 
@@ -203,6 +207,8 @@ export default {
     font-weight: 500;
     line-height: 38px;
     color: #252525;
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
 
   .side-panel-link {

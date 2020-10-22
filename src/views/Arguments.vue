@@ -7,7 +7,7 @@
       <div class="icons">
         <b-button class="icon" @click="shareFacebook()"><img src="../assets/icons/facebook.svg"></b-button>
         <b-button class="icon" @click="shareTwitter()"><img src="../assets/icons/twitter.svg"></b-button>
-        <a href="mailto:?subject=Ne dovolimo, da korona kriza poglobi stanovanjsko krizo!&body=Korona kriza je razgalila in zaostrila vrsto težav na stanovanjskem področju. Vlada je pri pripravi ukrepov očitno tudi tokrat pozabila na brezdomne, najemnike in kreditojemalce, ki bodo v drugem valu že drugič nasrkali. Na povezavi https://danesjenovdan.si/korona-kiks/ si lahko ogledaš največje korona kikse in predloge ukrepov, ki bi jih veljalo upoštevati, če nočemo, da trenutna epidemija še dodatno zaostri obstoječo stanovanjsko krizo.">
+        <a href="mailto:?subject=Ne dovolimo, da korona kriza poglobi stanovanjsko krizo!&body=Korona kriza je razgalila in zaostrila vrsto težav na stanovanjskem področju. Vlada je pri pripravi ukrepov očitno tudi tokrat pozabila na brezdomne, najemnike in kreditojemalce, ki bodo v drugem valu že drugič nasrkali. Na povezavi https://danesjenovdan.si/korona-kiks/ si lahko ogledaš največje korona kikse in predloge ukrepov, ki bi jih veljalo upoštevati, če nočemo, da trenutna epidemija še dodatno zaostri obstoječo stanovanjsko krizo." rel="noopener noreferrer" target="_blank">
           <b-button class="icon"><img src="../assets/icons/mail.svg"></b-button>
         </a>
       </div>
@@ -47,7 +47,7 @@
         <div class="icons">
           <b-button class="icon" @click="shareFacebook()"><img src="../assets/icons/facebook.svg"></b-button>
           <b-button class="icon" @click="shareTwitter()"><img src="../assets/icons/twitter.svg"></b-button>
-          <a href="mailto:?subject=Ne dovolimo, da korona kriza poglobi stanovanjsko krizo!&body=Korona kriza je razgalila in zaostrila vrsto težav na stanovanjskem področju. Vlada je pri pripravi ukrepov očitno tudi tokrat pozabila na brezdomne, najemnike in kreditojemalce, ki bodo v drugem valu že drugič nasrkali. Na povezavi danesjenovdan.si/korona-kiks si lahko ogledaš največje korona kikse in predloge ukrepov, ki bi jih veljalo upoštevati, če nočemo, da trenutna epidemija še dodatno zaostri obstoječo stanovanjsko krizo.">
+          <a href="mailto:?subject=Ne dovolimo, da korona kriza poglobi stanovanjsko krizo!&body=Korona kriza je razgalila in zaostrila vrsto težav na stanovanjskem področju. Vlada je pri pripravi ukrepov očitno tudi tokrat pozabila na brezdomne, najemnike in kreditojemalce, ki bodo v drugem valu že drugič nasrkali. Na povezavi danesjenovdan.si/korona-kiks si lahko ogledaš največje korona kikse in predloge ukrepov, ki bi jih veljalo upoštevati, če nočemo, da trenutna epidemija še dodatno zaostri obstoječo stanovanjsko krizo." rel="noopener noreferrer" target="_blank">
             <b-button class="icon"><img src="../assets/icons/mail.svg"></b-button>
           </a>
         </div>
