@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div id="top-paragraph">
-      <p>Nedavna korona kriza je razgalila vrsto težav na stanovanjskem področju. Izpostavljamo največje korona kikse in predlagamo nekaj rešitev, ki bi jih veljalo upoštevati ob morebitnem zaostrovanju drugega vala epidemije.</p>
-    </div>
+<!--    <div id="top-paragraph">-->
+<!--      <p>Nedavna korona kriza je razgalila vrsto težav na stanovanjskem področju. Izpostavljamo največje korona kikse in predlagamo nekaj rešitev, ki bi jih veljalo upoštevati ob morebitnem zaostrovanju drugega vala epidemije.</p>-->
+<!--    </div>-->
     <div :ref="'accordion-' + arg.id"
          :id="'accordion-' + arg.id"
          v-for="arg in content" :key="arg.id"
@@ -24,7 +24,7 @@
           <div v-if="!arg.expanded"
                class="learn-more"
                @click="openLearnMore(arg.id, $event)"
-          >Izvedi več</div>
+          >Kako ukrepati?</div>
           <b-collapse :id="'collapse-' + arg.id"
                       v-model="arg.expanded"
                       @shown="goToElement(arg.id)"
@@ -50,7 +50,7 @@
           <div v-if="!arg.expanded"
                class="learn-more"
                @click="openLearnMore(arg.id, $event)"
-          >Izvedi več</div>
+          >Kako ukrepati?</div>
           <b-collapse :id="'collapse-' + arg.id"
                       v-model="arg.expanded"
                       @shown="goToElement(arg.id)"

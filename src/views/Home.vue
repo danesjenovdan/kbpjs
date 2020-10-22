@@ -17,52 +17,34 @@
           </span>
         </div>
       </transition>
-      <button id="quote-btn"
-              @click="getQuote()">
-        <b-icon icon="arrow-repeat"
-                font-scale="1.5"
-                class="repeat-arrow"
-                style="color: #252525; margin-right: 5px">
-        </b-icon>
-        <span style="vertical-align: top;">Naloži novo izjavo</span>
-      </button>
+<!--      <button id="quote-btn"-->
+<!--              @click="getQuote()">-->
+<!--        <b-icon icon="arrow-repeat"-->
+<!--                font-scale="1.5"-->
+<!--                class="repeat-arrow"-->
+<!--                style="color: #252525; margin-right: 5px">-->
+<!--        </b-icon>-->
+<!--        <span style="vertical-align: top;">Naloži novo izjavo</span>-->
+<!--      </button>-->
       <div class="container-side-panel-2">
-        <p class="side-panel-text">
-          Bedno, okej.<br>
-          Ampak, a lahko
-          vsaj prepričamo
-          vlado, da v
-          naslednji rundi
-          ne ignorira
-          stanovanjske
-          problematike?
-        </p>
+        <p class="side-panel-text">{{ sidePanelText }}</p>
         <div class="side-panel-link">
-          <router-link to="/argumenti"
+          <router-link to="/kiksi"
                        @click.native="stopTimeout()"
                        style="color: #252525; line-height: 1">
-            <p class="m-0">Ja, prosim!</p>
+            <p class="m-0">Spoznaj korona kikse</p>
             <img class="arrow" src="../assets/icons/learn_more_arrow.svg">
           </router-link>
         </div>
       </div>
     </div>
     <div class="container-side-panel-1">
-      <p class="side-panel-text">
-        Bedno, okej.<br>
-        Ampak, a lahko
-        vsaj prepričamo
-        vlado, da v
-        naslednji rundi<br>
-        ne ignorira
-        stanovanjske
-        problematike?
-      </p>
+      <p class="side-panel-text">{{ sidePanelText }}</p>
       <div class="side-panel-link">
-        <router-link to="/argumenti"
+        <router-link to="/kiksi"
                      @click.native="stopTimeout()"
                      style="color: #252525; line-height: 1">
-          <p class="m-0">Ja, prosim!</p>
+          <p class="m-0">Spoznaj korona kikse</p>
           <img style="width: 8vh" src="../assets/icons/learn_more_arrow.svg">
         </router-link>
       </div>
@@ -82,6 +64,7 @@ export default {
       currentQuote: quotes[0],
       quoteIndex: 0,
       myTimeout: -1,
+      sidePanelText: 'Korona kriza je razgalila in zaostrila vrsto težav na stanovanjskem področju. Kljub "resnim pripravam" bo "vse hudo" brezdomne, najemnike in kreditojemalce še enkrat doletelo v drugem valu. Oglej si največje korona kikse in predloge ukrepov, o katerih politika (še?) ne razmišlja.',
     };
   },
 
@@ -123,7 +106,7 @@ export default {
   },
 
   mounted() {
-    this.myTimeout = setTimeout(this.getQuote, this.currentQuote.text.split(' ').length * 1.5 * 1000);
+    // this.myTimeout = setTimeout(this.getQuote, this.currentQuote.text.split(' ').length * 1.5 * 1000);
   },
 };
 </script>
@@ -146,11 +129,11 @@ export default {
   }
   .container-side-panel-1 {
     position: absolute;
-    padding: 5%;
+    padding: 4%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    width: 26%;
+    width: 30%;
     height: 90vh;
     right: 5vh;
     top: 5vh;
@@ -186,6 +169,7 @@ export default {
     font-family: "acumin-pro", sans-serif;
     color: #343434;
     overflow: hidden;
+    margin-bottom: auto;
   }
 
   #quote-btn{
@@ -214,16 +198,16 @@ export default {
   }
 
   .side-panel-text {
-    font-size: 2vw;
+    font-size: 3.5vh;
     font-family: "quador-display", sans-serif;
     font-weight: 500;
-    line-height: 50px;
+    line-height: 38px;
     color: #252525;
   }
 
   .side-panel-link {
     margin-top: 2vw;
-    font-size: 3vw;
+    font-size: 2vw;
     text-decoration: underline;
     cursor: pointer;
     font-family: "quador-display", sans-serif;

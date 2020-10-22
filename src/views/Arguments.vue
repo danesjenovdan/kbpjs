@@ -2,12 +2,14 @@
   <b-container fluid class="p-0 m-0">
     <div id="side-bar-1">
       <div class="poziv">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <p>Nedavna korona kriza je razgalila vrsto težav na stanovanjskem področju. Izpostavljamo največje korona kikse in predlagamo nekaj rešitev, ki bi jih veljalo upoštevati ob morebitnem zaostrovanju drugega vala epidemije.</p>
       </div>
       <div class="icons">
-        <b-button class="icon"><img src="../assets/icons/facebook.svg"></b-button>
-        <b-button class="icon"><img src="../assets/icons/twitter.svg"></b-button>
-        <b-button class="icon"><img src="../assets/icons/mail.svg"></b-button>
+        <b-button class="icon" @click="shareFacebook()"><img src="../assets/icons/facebook.svg"></b-button>
+        <b-button class="icon" @click="shareTwitter()"><img src="../assets/icons/twitter.svg"></b-button>
+        <a href="mailto:?subject=Ne dovolimo, da korona kriza poglobi stanovanjsko krizo!&body=Korona kriza je razgalila in zaostrila vrsto težav na stanovanjskem področju. Vlada je pri pripravi ukrepov očitno tudi tokrat pozabila na brezdomne, najemnike in kreditojemalce, ki bodo v drugem valu že drugič nasrkali. Na povezavi danesjenovdan.si/korona-kiks si lahko ogledaš največje korona kikse in predloge ukrepov, ki bi jih veljalo upoštevati, če nočemo, da trenutna epidemija še dodatno zaostri obstoječo stanovanjsko krizo.">
+          <b-button class="icon"><img src="../assets/icons/mail.svg"></b-button>
+        </a>
       </div>
       <div class="authors">
         <span>
@@ -24,13 +26,15 @@
       <div class="donate">
         <span style="display: table-cell; vertical-align: middle">
           <span style="font-family: 'acumin-pro', sans-serif;">Želiš podpreti naše delo?</span>
-          <b-button id="donate-btn">
+          <a href="https://danesjenovdan.si/doniraj" rel="noopener noreferrer" target="_blank">
+            <b-button id="donate-btn">
             <span style="font-weight: bold; font-family: 'quador-display', sans-serif;">Doniraj</span>
             <b-icon icon="suit-heart-fill"
                     style="margin-left: 10px"
                     class="heart">
             </b-icon>
           </b-button>
+          </a>
         </span>
       </div>
     </div>
@@ -38,7 +42,7 @@
       <accordion></accordion>
       <div id="side-bar-2">
         <div class="poziv">
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          <p>Nedavna korona kriza je razgalila vrsto težav na stanovanjskem področju. Izpostavljamo največje korona kikse in predlagamo nekaj rešitev, ki bi jih veljalo upoštevati ob morebitnem zaostrovanju drugega vala epidemije.</p>
         </div>
         <div class="icons">
           <b-button class="icon"><img src="../assets/icons/facebook.svg"></b-button>
@@ -60,7 +64,7 @@
         <div class="donate">
         <span>
           <span>Želiš podpreti naše delo?</span>
-          <b-button id="donate-btn">
+          <b-button id="donate-btn" >
             <span style="font-weight: bold; font-family: 'quador-display', sans-serif;">Doniraj</span>
             <b-icon icon="suit-heart-fill"
                     style="margin-left: 10px"
@@ -84,6 +88,27 @@ export default {
     return {
       heartBeat: false,
     };
+  },
+  methods: {
+    shareFacebook() {
+      const title = 'Ne dovolimo, da korona kriza poglobi stanovanjsko krizo!';
+      const link = encodeURIComponent('https://danesjenovdan.si/korona-kiks/');
+      const url = `https://www.facebook.com/dialog/feed?app_id=301375193309601&redirect_uri=${link}&link=${link}&ref=responsive&name=${title}`;
+      // const url = 'https://www.facebook.com/dialog/feed?app_id=301375193309601&redirect_uri=' + encodeURIComponent(document.location.href) + '&link=' + encodeURIComponent(document.location.href) + '&ref=responsive&name=' + encodeURIComponent(title);
+      window.open(url, '_blank');
+      return false;
+    },
+    shareTwitter() {
+      // const text = 'Korona kriza je razgalila in zaostrila vrsto težav na stanovanjskem področju. @vladaRS je pri pripravi ukrepov očitno tudi tokrat pozabila na brezdomne, najemnike in kreditojemalce, ki bodo v drugem valu že drugič nasrkali.';
+      const text = 'Korona kriza je razgalila in zaostrila vrsto težav na stanovanjskem področju. Oglej si največje korona kikse in predloge ukrepov, o katerih @vladaRS (še?) ne razmišlja.';
+      const hashtags = '#OstaniDoma #Vladozlom #KoronaKiks';
+      const link = 'https://danesjenovdan.si/korona-kiks/';
+      const append = encodeURIComponent(`${text} ${hashtags} ${link}`);
+
+      const url = `https://twitter.com/intent/tweet?text=${append}`;
+      window.open(url, '_blank');
+      return false;
+    },
   },
 };
 </script>
