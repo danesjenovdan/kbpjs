@@ -2,7 +2,7 @@
   <b-container fluid class="p-0 m-0">
     <div id="side-bar-1">
       <div class="poziv">
-        <p>Nedavna korona kriza je razgalila vrsto težav na stanovanjskem področju. Izpostavljamo največje korona kikse in predlagamo nekaj rešitev, ki bi jih veljalo upoštevati ob morebitnem zaostrovanju drugega vala epidemije.</p>
+        <p>Nedavna korona kriza je razgalila vrsto težav na stanovanjskem področju. Izpostavljamo največje korona kikse in predlagamo nekaj rešitev, ki bi jih veljalo upoštevati ob zaostrovanju drugega vala epidemije.</p>
       </div>
       <div class="icons">
         <b-button class="icon" @click="shareFacebook()"><img src="../assets/icons/facebook.svg"></b-button>
@@ -42,7 +42,7 @@
       <accordion></accordion>
       <div id="side-bar-2">
         <div class="poziv">
-          <p>Nedavna korona kriza je razgalila vrsto težav na stanovanjskem področju. Izpostavljamo največje korona kikse in predlagamo nekaj rešitev, ki bi jih veljalo upoštevati ob morebitnem zaostrovanju drugega vala epidemije.</p>
+          <p>Nedavna korona kriza je razgalila vrsto težav na stanovanjskem področju. Izpostavljamo največje korona kikse in predlagamo nekaj rešitev, ki bi jih veljalo upoštevati ob zaostrovanju drugega vala epidemije.</p>
         </div>
         <div class="icons">
           <b-button class="icon" @click="shareFacebook()"><img src="../assets/icons/facebook.svg"></b-button>
@@ -210,7 +210,6 @@ export default {
     align-self: center;
     font-size: 1.5vw;
     margin: auto 2rem 0 2rem;
-    text-align: justify;
     font-family: "quador-display", sans-serif;
     font-weight: 500;
     color: #252525;
