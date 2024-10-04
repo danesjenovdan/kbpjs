@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: korona-kiks
+  labels:
+    app: korona-kiks
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: korona-kiks
+  template:
+    metadata:
+      labels:
+        app: korona-kiks
+    spec:
+      containers:
+        - name: korona-kiks
+          image: korona-kiks
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: 50Mi
+              cpu: 50m
+            limits:
+              memory: 50Mi
+              cpu: 50m

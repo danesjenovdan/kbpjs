@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: korona-kiks
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - korona-kiks.djnd.si
+        - korona-kiks.danesjenovdan.si
+      secretName: korona-kiks-tls
+  rules:
+    - host: korona-kiks.djnd.si
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: korona-kiks
+                port:
+                  number: 80
+    - host: korona-kiks.danesjenovdan.si
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: korona-kiks
+                port:
+                  number: 80
