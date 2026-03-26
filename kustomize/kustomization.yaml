@@ -8,4 +8,4 @@ resources:
 images:
   - name: korona-kiks
     newName: rg.fr-par.scw.cloud/djnd/korona-kiks
-    newTag: '5ced83484117c65c55e6bc97c99d212d96856059'
+    newTag: '8754dd9cd78f1c4454787355c61e3729c0b628ae'
